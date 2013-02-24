@@ -10,7 +10,8 @@ distribution_type:        module
 installdirs:              site
 
 requires:
-  Image::Magick:                    0,
+  perl:                             5.006
+  Image::Magick:                    0
 recommends:
   Test::More:                       0.70
   Test::Pod:                        1.00
@@ -18,6 +19,7 @@ recommends:
   Test::CPAN::Meta:                 0.13
   Test::JSON::Meta:                 0.08
 build_requires:
+  IO::File:                         0
   Test::More:                       0.01
 
 provides:
@@ -30,8 +32,9 @@ no_index:
     - t
 
 resources:
-  license:    http://dev.perl.org/licenses/
+  license:    http://www.perlfoundation.org/artistic_license_2_0
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Labyrinth-DIUtils-ImageMagick
+  repository: http://github.com/barbie/labyrinth-diutils-imdriver
 
 meta-spec:
    version:   1.4
