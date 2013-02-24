@@ -1,62 +1,46 @@
-Labyrinth::DIUtils::ImUseraContributed Perl Labyrinth::DIUtils::ImageMagick(3)
+Labyrinth::DIUtils::ImageMagick
+===============================
 
+Handles the driver software for ImageMagick image manipulation within the 
+Labyrinth Web Framework. If using within Labyrinth, do not use this module 
+directly, access should be used via Labyrinth::DIUtils.
 
-
-NAME
-       Labyrinth::DIUtils::ImageMagick - Digital Image utilities driver for
-       ImageMagick.
+However, the module can be use in isolation.
 
 SYNOPSIS
-         use Labyrinth::DIUtils::ImageMagick;
+    use Labyrinth::DIUtils::ImageMagick;
 
-	 Labyrinth::DIUtils::Tool('ImageMagick');
+    # if using Labyrinth.
+    Labyrinth::DIUtils::Tool('ImageMagick');
 
-         my $hook = Labyrinth::DIUtils::ImageMagick->new($file);
-         my $hook = $hook->rotate($degrees);       # 0 - 360
-         my $hook = $hook->reduce($xmax,$ymax);
-         my $hook = $hook->thumb($thumbnail,$square);
+    my $hook = Labyrinth::DIUtils::ImageMagick>new($file);
+    my $hook = $hook->rotate($degrees);       # 0 - 360
+    my $hook = $hook->reduce($xmax,$ymax);
+    my $hook = $hook->thumb($thumbnail,$square);
 
-DESCRIPTION
-       Handles the driver software for ImageMagick image manipulation; Do not
-       use this module directly, access via Labyrinth::DIUtils.
+INSTALLATION
 
-METHODS
-   Contructor
-       new($file)
-           The constructor. Passed a single mandatory argument, which is then
-           used as the image file for all image manipulation.
+See the INSTALL file for full instructions.
 
-   Image Manipulation
-       rotate($degrees)
-           Object Method. Passed a single mandatory argument, which is then
-           used to turn the image file the number of degrees specified.
+DEPENDENCIES
 
-       reduce($xmax,$ymax)
-           Object Method. Passed two arguments (defaulting to 100x100), which
-           is then used to reduce the image to a size that fit inside a box of
-           the specified dimensions.
+    ImageMagick
 
-       thumb($thumbnail,$square)
-           Object Method. Passed two arguments, the first being the name of
-           the thumbnail file to be created, and the second being a single
-           dimension of the square box (defaulting to 100), which is then used
-           to reduce the image to a thumbnail.
+Note that although this distribution is intended to be used within the 
+Labyrinth Web Framework, it doesn't require any part of the framework,
+and can be used independently.
 
-SEE ALSO
-         Image::Magick
-         Labyrinth
+See also Perldoc.
 
 AUTHOR
-       Barbie, <barbie@missbarbell.co.uk> for Miss Barbell Productions,
-       <http://www.missbarbell.co.uk/>
+
+  Barbie, <barbie@missbarbell.co.uk> for Miss Barbell Productions,
+  <http://www.missbarbell.co.uk/>
 
 COPYRIGHT & LICENSE
-         Copyright (C) 2002-2011 Barbie for Miss Barbell Productions
-         All Rights Reserved.
 
-         This module is free software; you can redistribute it and/or
-         modify it under the Artistic License 2.0.
+  Copyright (C) 2002-2013 Barbie for Miss Barbell Productions
+  All Rights Reserved.
 
-
-
-perl v5.10.1                      2011-03-13Labyrinth::DIUtils::ImageMagick(3)
+  This module is free software; you can redistribute it and/or
+  modify it under the Artistic License 2.0.
