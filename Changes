@@ -2,6 +2,7 @@ Changes for the Labyrinth-DIUtils-ImageMagick
 
         - change file dates changed to meet W3CDTF standards.
         - added INSTALL & LICENSE files.
+        - reworked Makefile.PL for clarity.
 
 5.04	2011-03-13
 	    - abstracted from Labyrinth, as stand alone plugin.
