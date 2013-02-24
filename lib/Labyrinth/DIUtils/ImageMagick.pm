@@ -53,14 +53,17 @@ image file for all image manipulation.
 =cut
 
 sub new {
-    my $self = shift;
+    my $self  = shift;
     my $image = shift;
+
+    die "no image specified"    if !$image;
+    die "no image file found"   if !-f $image;
 
     # read in current image
     my $i = Image::Magick->new();
-    Croak("object image error: [$image]")   if !$i;
+    die "object image error: [$image]"  if !$i;
     my $c = $i->Read($image);
-    Croak("read image error: [$image] $c")  if $c;
+    die "read image error: [$image]"    if !$c;
 
     my $atts = {
         'image'     => $image,
@@ -88,14 +91,14 @@ sub rotate {
     my $self = shift;
     my $degs = shift || return undef;
 
-    return  unless($self->{image});
+    return  unless($self->{image} && $self->{object});
 
     my $i = $self->{object};
-    return  unless($i);
-
     $i->Rotate(degrees => $degs);
     my $c = $i->Write($self->{image});
-    Croak("write image error: [$self->{image}] $c\n")   if $c;
+    die "write image error: [$self->{image}] $c\n"   if $c;
+
+    return 1;
 }
 
 =item reduce($xmax,$ymax)
@@ -111,17 +114,17 @@ sub reduce {
     my $xmax = shift || 100;
     my $ymax = shift || 100;
 
-    return  unless($self->{image});
+    return  unless($self->{image} && $self->{object});
 
     my $i = $self->{object};
-    return  unless($i);
-
     my ($width,$height) = $i->Get('columns', 'rows');
     return  unless($width > $xmax || $height > $ymax);
 
     $i->Scale(geometry => "${xmax}x${ymax}");
     my $c = $i->Write($self->{image});
-    Croak("write image error: [$self->{image}] $c\n")   if $c;
+    die "write image error: [$self->{image}] $c\n"   if $c;
+
+    return 1;
 }
 
 =item thumb($thumbnail,$square)
@@ -136,7 +139,7 @@ file to be created, and the second being a single dimension of the square box
 
 sub thumb {
     my $self = shift;
-    my $file = shift;
+    my $file = shift || return;
     my $smax = shift || 100;
 
     my $i = $self->{object};
@@ -144,7 +147,9 @@ sub thumb {
 
     $i->Scale(geometry => "${smax}x${smax}");
     my $c = $i->Write($file);
-    Croak("write image error: [$file] $c\n")    if $c;
+    die "write image error: [$self->{image}] $c\n"   if $c;
+
+    return 1;
 }
 
 1;
@@ -163,7 +168,7 @@ Miss Barbell Productions, L<http://www.missbarbell.co.uk/>
 
 =head1 COPYRIGHT & LICENSE
 
-  Copyright (C) 2002-2011 Barbie for Miss Barbell Productions
+  Copyright (C) 2002-2013 Barbie for Miss Barbell Productions
   All Rights Reserved.
 
   This module is free software; you can redistribute it and/or
