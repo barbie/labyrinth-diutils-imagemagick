@@ -19,6 +19,8 @@ recommends:
   Test::CPAN::Meta:                 0.13
   Test::JSON::Meta:                 0.08
 build_requires:
+  File::Copy:                       0
+  File::Path:                       0
   IO::File:                         0
   Test::More:                       0.01
 

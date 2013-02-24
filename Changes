@@ -6,6 +6,7 @@ Changes for the Labyrinth-DIUtils-ImageMagick
         - various META file updates.
         - updated README.
         - removed Croak and simplified error handling.
+        - updated and extended test suite.
 
 5.04	2011-03-13
 	    - abstracted from Labyrinth, as stand alone plugin.

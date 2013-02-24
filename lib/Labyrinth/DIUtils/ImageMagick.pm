@@ -61,9 +61,9 @@ sub new {
 
     # read in current image
     my $i = Image::Magick->new();
-    die "object image error: [$image]"  if !$i;
+    die "object image error: [$image]\n"    if !$i;
     my $c = $i->Read($image);
-    die "read image error: [$image]"    if !$c;
+    die "read image error: [$image] $c\n"   if $c;
 
     my $atts = {
         'image'     => $image,
