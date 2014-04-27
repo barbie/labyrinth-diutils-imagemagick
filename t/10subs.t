@@ -51,7 +51,7 @@ eval {
     is($di->thumb($thumbnail2,120),1,'set thumbnail');
     ok(-f $thumbnail2);
 
-    #rmtree('t/test');
+    rmtree('t/test');
 };
 
 diag($@) if($@);
