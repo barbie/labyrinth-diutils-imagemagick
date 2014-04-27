@@ -1,5 +1,5 @@
 --- #YAML:1.0
-name:                     Labyrinth::DIUtils::ImageMagick
+name:                     Labyrinth-DIUtils-ImageMagick
 version:                  5.05
 abstract:                 Digital Image utilities driver with GD for Labyrinth Framework
 author:

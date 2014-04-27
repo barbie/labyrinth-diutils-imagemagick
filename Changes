@@ -1,4 +1,7 @@
-Changes for the Labyrinth-DIUtils-ImageMagick
+Changes for Labyrinth-DIUtils-ImageMagick
+=========================================
+
+        - fixed distribution name in META.
 
 5.05    2013-02-24
         - change file dates changed to meet W3CDTF standards.
