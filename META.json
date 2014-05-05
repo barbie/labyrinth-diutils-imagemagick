@@ -1,6 +1,6 @@
 {
     "name": "Labyrinth-DIUtils-ImageMagick",
-    "version": "5.05",
+    "version": "5.06",
     "abstract": "Digital Image utilities driver with ImageMagick for Labyrinth Framework",
     "author": [
         "Barbie (BARBIE) <barbie@cpan.org>"
@@ -46,7 +46,7 @@
     "provides": {
         "Labyrinth::DIUtils::ImageMagick": {
             "file": "lib/Labyrinth/DIUtils/ImageMagick.pm",
-            "version": "5.05"
+            "version": "5.06"
         }
     },
     "no_index": {
