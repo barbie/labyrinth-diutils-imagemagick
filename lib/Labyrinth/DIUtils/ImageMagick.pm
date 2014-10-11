@@ -94,6 +94,8 @@ sub rotate {
     return  unless($self->{image} && $self->{object});
 
     my $i = $self->{object};
+    return  unless($i);
+
     $i->Rotate(degrees => $degs);
     my $c = $i->Write($self->{image});
     die "write image error: [$self->{image}] $c\n"   if $c;
@@ -113,12 +115,18 @@ sub reduce {
     my $self = shift;
     my $xmax = shift || 100;
     my $ymax = shift || 100;
+    my $qual = shift || 0;
 
     return  unless($self->{image} && $self->{object});
 
     my $i = $self->{object};
+    return  unless($i);
+
     my ($width,$height) = $i->Get('columns', 'rows');
     return  unless($width > $xmax || $height > $ymax);
+
+    # set the quality of the image, if specified
+    $i->Set( quality => $qual ) if($qual);
 
     $i->Scale(geometry => "${xmax}x${ymax}");
     my $c = $i->Write($self->{image});
