@@ -2,7 +2,7 @@ Changes for Labyrinth-DIUtils-ImageMagick
 =========================================
 
         - fixed license fields in META.json to be lists.
-        - extended META test suite.
+        - extended META & functional test suite.
         - can now set the quality of an image.
         - improved error checking.
 
