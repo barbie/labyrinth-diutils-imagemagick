@@ -89,16 +89,13 @@ the image file the number of degrees specified.
 
 sub rotate {
     my $self = shift;
-    my $degs = shift || return undef;
+    my $degs = shift || return;
 
     return  unless($self->{image} && $self->{object});
 
     my $i = $self->{object};
-    return  unless($i);
-
     $i->Rotate(degrees => $degs);
-    my $c = $i->Write($self->{image});
-    die "write image error: [$self->{image}] $c\n"   if $c;
+    $self->_writeimage($self->{image});
 
     return 1;
 }
@@ -120,8 +117,6 @@ sub reduce {
     return  unless($self->{image} && $self->{object});
 
     my $i = $self->{object};
-    return  unless($i);
-
     my ($width,$height) = $i->Get('columns', 'rows');
     return  unless($width > $xmax || $height > $ymax);
 
@@ -129,8 +124,7 @@ sub reduce {
     $i->Set( quality => $qual ) if($qual);
 
     $i->Scale(geometry => "${xmax}x${ymax}");
-    my $c = $i->Write($self->{image});
-    die "write image error: [$self->{image}] $c\n"   if $c;
+    $self->_writeimage($self->{image});
 
     return 1;
 }
@@ -150,14 +144,24 @@ sub thumb {
     my $file = shift || return;
     my $smax = shift || 100;
 
+    return  unless($self->{object});
+
+    my $i = $self->{object};
+    $i->Scale(geometry => "${smax}x${smax}");
+    $self->_writeimage($file);
+
+    return 1;
+}
+
+sub _writeimage {
+    my $self = shift;
+    my $file = shift;
+
     my $i = $self->{object};
     return  unless($i);
 
-    $i->Scale(geometry => "${smax}x${smax}");
     my $c = $i->Write($file);
     die "write image error: [$self->{image}] $c\n"   if $c;
-
-    return 1;
 }
 
 1;
