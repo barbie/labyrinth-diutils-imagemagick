@@ -8,9 +8,9 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     AUTHOR              => 'Barbie <barbie@cpan.org>',
-    NAME                => 'Labyrinth-DIUtils-ImageMagick',
+    NAME                => 'Labyrinth::DIUtils::ImageMagick',
     VERSION_FROM        => 'lib/Labyrinth/DIUtils/ImageMagick.pm',
-    ABSTRACT	        => 'Digital Image utilities driver with ImageMagick for Labyrinth Framework',
+    ABSTRACT            => 'Digital Image utilities driver with ImageMagick for Labyrinth Framework',
     NO_META             => 1,
     PREREQ_PM           => {
 
