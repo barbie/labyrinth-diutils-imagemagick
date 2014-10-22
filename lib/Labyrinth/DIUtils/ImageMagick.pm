@@ -3,7 +3,7 @@ package Labyrinth::DIUtils::ImageMagick;
 use warnings;
 use strict;
 
-our $VERSION = '5.06';
+our $VERSION = '5.07';
 
 =head1 NAME
 
