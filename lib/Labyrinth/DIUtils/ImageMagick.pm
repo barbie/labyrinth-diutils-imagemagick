@@ -95,6 +95,7 @@ sub rotate {
 
     my $i = $self->{object};
     $i->Rotate(degrees => $degs);
+    $i->Set( orientation => 'top-right' );
     $self->_writeimage($self->{image});
 
     return 1;

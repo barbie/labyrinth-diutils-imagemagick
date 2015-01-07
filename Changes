@@ -1,6 +1,8 @@
 Changes for Labyrinth-DIUtils-ImageMagick
 =========================================
 
+        - fixed orientation on rotate to avoid browsers being "helpful".
+
 5.07    2014-10-19
         - fixed license fields in META.json to be lists.
         - extended META & functional test suite.
