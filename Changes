@@ -1,6 +1,7 @@
 Changes for Labyrinth-DIUtils-ImageMagick
 =========================================
 
+5.08    2015-01-08
         - fixed orientation on rotate to avoid browsers being "helpful".
 
 5.07    2014-10-19

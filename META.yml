@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                     Labyrinth-DIUtils-ImageMagick
-version:                  5.07
+version:                  5.08
 abstract:                 Digital Image utilities driver with GD for Labyrinth Framework
 author:
   - Barbie <barbie@cpan.org>
@@ -27,7 +27,7 @@ build_requires:
 provides:
   Labyrinth::DIUtils::ImageMagick:
     file:     lib/Labyrinth/DIUtils/ImageMagick.pm
-    version:  5.07
+    version:  5.08
 
 no_index:
   directory:
